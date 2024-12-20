@@ -1,0 +1,73 @@
+.wrapper {
+   position: relative;
+   display: flex;
+}
+.common {
+   --theme: #1976d2;
+   --error-color: rgb(194, 22, 22);
+   font-family: Arial, Helvetica, sans-serif;
+   outline: none;
+   border: none;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   height: 25px;
+   padding: 0 7px;
+   font-size: 0.8rem;
+   border-radius: 5px;
+}
+
+.prompt {
+   position: absolute;
+   visibility: hidden;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 0.8rem;
+   top: 5px;
+   left: 7px;
+   background-color: aqua;
+}
+
+.common:not(:placeholder-shown) {
+   .prompt {
+      visibility: visible;
+      top: 0px;
+      color: var(--theme);
+      transform: scale(0.95);
+      background-color: white;
+      padding: 3px;
+      transition: all 0.23s ease;
+   }
+}
+
+.outlined {
+   color: var(--theme);
+   border: none;
+   background: none;
+   font-size: 0.8rem;
+}
+.filled {
+   border: none;
+   color: white;
+   background-color: var(--theme);
+}
+.standard {
+   border-radius: 0;
+   border-bottom: 2px solid var(--theme);
+}
+
+.error {
+   border-color: var(--error-color);
+   .prompt {
+      color: var(--error-color);
+   }
+}
+/* @media (hover: hover) {
+   :is(.text, .outlined):hover {
+      background-color: color-mix(in srgb, var(--theme), transparent 90%);
+      transition: background-color 0.2s linear;
+   }
+   .contained:hover {
+      background-color: #125eaa;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      transition: all 0.15s linear;
+   }
+} */

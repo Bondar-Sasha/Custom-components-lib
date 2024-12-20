@@ -1,0 +1,36 @@
+.common {
+   --theme: #1976d2;
+   font-family: Arial, Helvetica, sans-serif;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.text {
+   color: var(--theme);
+   border: none;
+   background: none;
+   font-size: 0.8rem;
+}
+.contained {
+   border: none;
+   font-size: 0.93rem;
+   color: white;
+   background-color: var(--theme);
+}
+.outlined {
+   background: none;
+   border: 1px solid var(--theme);
+   color: var(--theme);
+   font-size: 0.89rem;
+}
+@media (hover: hover) {
+   :is(.text, .outlined):hover {
+      background-color: color-mix(in srgb, var(--theme), transparent 90%);
+      transition: background-color 0.2s linear;
+   }
+   .contained:hover {
+      background-color: #125eaa;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      transition: all 0.15s linear;
+   }
+}
