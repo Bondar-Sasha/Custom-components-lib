@@ -1,16 +1,17 @@
-const path = require('path')
+import { resolve } from 'path'
+import webpack from 'webpack'
 
-module.exports = {
+export default {
    mode: 'production',
    entry: './src/index.ts',
    output: {
       filename: 'index.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: resolve(__dirname, 'dist'),
       libraryTarget: 'umd',
       clean: true,
    },
    resolve: {
-      extensions: ['.ts', '.tsx', '.scss', '.css'],
+      extensions: ['.ts', '.tsx', '.css', '.scss'],
    },
    externals: {
       react: 'react',
@@ -26,9 +27,8 @@ module.exports = {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
          },
-
          {
-            test: /\.(ts|tsx)?$/,
+            test: /\.tsx?$/,
             use: [
                {
                   loader: 'ts-loader',
@@ -44,6 +44,10 @@ module.exports = {
          },
       ],
    },
-   plugins: [],
-   devtool: 'source-map',
-}
+   optimization: {
+      usedExports: true,
+      splitChunks: {
+         chunks: 'all',
+      },
+   },
+} as webpack.Configuration
