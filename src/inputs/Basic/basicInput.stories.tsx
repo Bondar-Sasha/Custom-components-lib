@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ChangeEvent, FC, useState } from 'react'
 
 import BasicInputTemplate, { InputProps } from './BasicInput'
+import { InputVariants } from '../utils/variants'
 
 const BasicInput: FC<InputProps> = props => {
    const [value, setValue] = useState<string>('')
@@ -20,23 +21,22 @@ const meta: Meta<typeof BasicInput> = {
    },
    tags: ['autodocs', 'wip'],
    argTypes: {
+      variant: {
+         control: {
+            type: 'select',
+            options: Object.keys(InputVariants) as Array<keyof typeof InputVariants>,
+         },
+         defaultValue: 'standard',
+         description: 'Input kind.',
+      },
+      bgColor: { control: 'text', defaultValue: '#c5c5c5', description: 'Button background.' },
       error: {
          control: 'boolean',
          description: 'Behaver when error.',
          defaultValue: false,
       },
-      variant: {
-         control: {
-            type: 'select',
-            options: ['outlined', 'filled', 'standard'],
-         },
-         defaultValue: 'standard',
-         description: 'Input kind.',
-      },
    },
-   args: {
-      error: false,
-   },
+   args: {},
 }
 
 export default meta

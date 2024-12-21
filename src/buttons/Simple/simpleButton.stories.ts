@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import SimpleButton from './SimpleButton'
+import { ButtonVariants } from '../utils/variants'
+import { ButtonPossibleSizes } from '../utils/sizes'
 
 const meta: Meta<typeof SimpleButton> = {
    title: 'Buttons/SimpleButton',
@@ -17,7 +19,7 @@ const meta: Meta<typeof SimpleButton> = {
       variant: {
          control: {
             type: 'select',
-            options: ['outlined', 'text', 'contained'],
+            options: Object.keys(ButtonVariants) as Array<keyof typeof ButtonVariants>,
          },
          defaultValue: 'contained',
          description: 'Button kind.',
@@ -25,7 +27,7 @@ const meta: Meta<typeof SimpleButton> = {
       size: {
          control: {
             type: 'select',
-            options: ['small', 'medium', 'large'],
+            options: Object.keys(ButtonPossibleSizes) as Array<keyof typeof ButtonPossibleSizes>,
          },
          defaultValue: 'medium',
          description: 'Button size.',

@@ -1,4 +1,4 @@
-export const enum InputVariants {
+export enum InputVariants {
    outlined,
    filled,
    standard,

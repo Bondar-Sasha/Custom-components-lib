@@ -6,6 +6,7 @@ import { InputVariants } from '../utils/variants'
 
 export interface BasicInputProps {
    error?: boolean
+   bgColor?: string
    variant?: keyof typeof InputVariants
 }
 export type InputProps = BasicInputProps & InputHTMLAttributes<HTMLInputElement>
@@ -14,18 +15,22 @@ const defaultProps = {
    variant: 'standard',
    placeholder: 'write',
    error: false,
+   bgColor: '#c5c5c5',
    value: 'text',
    className: '',
 } as Required<InputProps>
 
 const BasicInput: FC<InputProps> = props => {
-   const { variant, className, error, placeholder, ...otherProps } = { ...defaultProps, ...props }
+   const { variant, className, error, bgColor, placeholder, ...otherProps } = { ...defaultProps, ...props }
 
    const classes = [styles.common, styles[variant], error ? styles.error : '', className].join(' ')
+
+   const preparedPlaceholder = error ? 'Error' : placeholder
+
    return (
       <div className={styles.wrapper}>
-         <label className={styles.prompt}>{placeholder}</label>
-         <input {...otherProps} className={classes} placeholder={error ? 'Error' : placeholder} />
+         <input {...otherProps} className={classes} placeholder={preparedPlaceholder} />
+         <label className={styles.prompt}>{preparedPlaceholder}</label>
       </div>
    )
 }

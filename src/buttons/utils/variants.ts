@@ -1,4 +1,4 @@
-export const enum ButtonVariants {
+export enum ButtonVariants {
    text,
    contained,
    outlined,

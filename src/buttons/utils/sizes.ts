@@ -3,7 +3,7 @@ interface Sizes {
    height: string
 }
 
-const enum ButtonPossibleSizes {
+export enum ButtonPossibleSizes {
    small,
    medium,
    large,
