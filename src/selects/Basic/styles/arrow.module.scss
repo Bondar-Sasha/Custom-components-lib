@@ -1,0 +1,11 @@
+.arrow {
+   cursor: pointer;
+   position: absolute;
+   top: 28%;
+   right: calc(7px + 1%);
+   pointer-events: none;
+   color: rgb(150, 150, 150);
+}
+.arrow_top {
+   transform: rotate(-180deg);
+}
