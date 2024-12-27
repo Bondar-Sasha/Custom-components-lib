@@ -1,0 +1,22 @@
+.toggle_label {
+   background-color: #ccc;
+   transition: background-color 0.3s ease;
+}
+
+.toggle_switch {
+   top: 11%;
+   left: 8%;
+   width: 42%;
+   aspect-ratio: 1 /1;
+   background-color: white;
+   border-radius: 50%;
+   transition: transform 0.3s ease;
+}
+
+.toggle_checkbox:checked + .toggle_label {
+   background-color: #4caf50;
+}
+
+.toggle_checkbox:checked + .toggle_label .toggle_switch {
+   transform: translateX(95%);
+}
