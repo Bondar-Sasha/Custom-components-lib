@@ -11,7 +11,7 @@ export default {
       clean: true,
    },
    resolve: {
-      extensions: ['.ts', '.tsx', '.css', '.scss'],
+      extensions: ['.ts', '.tsx', '.css'],
    },
    externals: {
       react: 'react',
@@ -22,10 +22,6 @@ export default {
          {
             test: /\.css$/,
             use: ['style-loader', 'css-loader'],
-         },
-         {
-            test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader'],
          },
          {
             test: /\.tsx?$/,

@@ -14,7 +14,8 @@
       "allowJs": true,
       "sourceMap": true,
       "declaration": true,
-      "incremental": true
+      "incremental": true,
+      "plugins": [{ "name": "typescript-plugin-css-modules" }]
    },
    "include": ["src"],
    "exclude": [".storybook", "node_modules", "dist", "src/**/*.stories"]
