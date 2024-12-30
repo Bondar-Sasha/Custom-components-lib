@@ -1,0 +1,33 @@
+.wrapper {
+   display: flex;
+   align-items: center;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 90%;
+}
+
+.toggle_container {
+   position: relative;
+   display: inline-block;
+}
+
+.toggle_checkbox {
+   display: none;
+}
+
+.toggle_label {
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   border-radius: 50px;
+}
+
+.toggle_switch {
+   position: absolute;
+}
+
+.switch_label {
+   margin-left: 10px;
+   cursor: pointer;
+}

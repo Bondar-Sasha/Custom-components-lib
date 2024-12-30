@@ -9,7 +9,7 @@
       "storybook": "storybook dev -p 6006",
       "build-storybook": "storybook build -o docs",
       "lint": "eslint src/**/*.{ts,tsx} --max-warnings 0",
-      "t-styles": "tcm -p src/**/*.scss",
+      "t-styles": "tcm -p src/**/*.css",
       "test": "jest",
       "prepare": "husky"
    },

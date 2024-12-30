@@ -1,0 +1,77 @@
+import React, { InputHTMLAttributes, FC } from 'react'
+import switchSizes from '../utils/sizes'
+import styles from './prototype.module.css'
+
+interface Classes {
+   wrapper?: string
+   toggle_container?: string
+   toggle_label?: string
+   toggle_switch?: string
+   switch_label?: string
+   toggle_checkbox?: string
+}
+
+interface PrototypeCustomProps {
+   label?: string
+   switchSize?: keyof typeof switchSizes
+   classes?: Classes
+}
+
+export type PrototypeProps = PrototypeCustomProps & InputHTMLAttributes<HTMLInputElement>
+
+export const defaultProps = {
+   label: '',
+   checked: false,
+   switchSize: 'medium',
+   classes: {
+      wrapper: '',
+      toggle_container: '',
+      toggle_label: '',
+      toggle_switch: '',
+      switch_label: '',
+      toggle_checkbox: '',
+   },
+} as Required<PrototypeProps>
+
+const Prototype: FC<PrototypeProps> = props => {
+   const {
+      switchSize,
+      label,
+      classes: { wrapper, toggle_container, toggle_label, toggle_switch, switch_label, toggle_checkbox },
+      ...otherProps
+   } = { ...defaultProps, ...props }
+
+   const switchId = `switch-${Math.random().toString(36).substring(2, 11)}`
+
+   const preparedWrapper = [styles.wrapper, wrapper].join(' ')
+   const preparedToggle_container = [styles.toggle_container, toggle_container].join(' ')
+   const preparedToggle_label = [styles.toggle_label, toggle_label].join(' ')
+   const preparedToggle_checkbox = [styles.toggle_checkbox, toggle_checkbox].join(' ')
+   const preparedToggle_switch = [styles.toggle_switch, toggle_switch].join(' ')
+   const preparedSwitch_label = [styles.switch_label, switch_label].join(' ')
+
+   return (
+      <div className={preparedWrapper}>
+         <div className={preparedToggle_container}>
+            <input {...otherProps} type="checkbox" className={preparedToggle_checkbox} id={switchId} />
+            <label
+               style={{
+                  width: switchSizes[switchSize].width,
+                  height: switchSizes[switchSize].height,
+               }}
+               className={preparedToggle_label}
+               htmlFor={switchId}
+            >
+               <span className={preparedToggle_switch}></span>
+            </label>
+         </div>
+         {label && (
+            <label className={preparedSwitch_label} htmlFor={switchId}>
+               {label}
+            </label>
+         )}
+      </div>
+   )
+}
+
+export default Prototype

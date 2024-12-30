@@ -1,0 +1,7 @@
+.wrapper {
+   --theme: #1976d2;
+   position: relative;
+   display: flex;
+   font-family: Arial, Helvetica, sans-serif;
+   cursor: pointer;
+}

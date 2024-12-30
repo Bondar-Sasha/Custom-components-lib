@@ -1,0 +1,28 @@
+@media (hover: hover) {
+   .wrapper:hover > input {
+      border-color: rgb(68, 68, 68);
+   }
+}
+
+.wrapper > .input:is(:not(:placeholder-shown), :focus) {
+   border: 2px solid var(--theme);
+}
+
+.input {
+   padding: 7px 10px;
+   font-size: 1rem;
+   border: 1px solid rgb(131, 131, 131);
+}
+.prompt {
+   left: 12px;
+   top: 25%;
+   background: none;
+   color: var(--theme);
+}
+.input:not(:placeholder-shown) + .prompt {
+   top: -23%;
+   background-color: white;
+   border: 3px solid white;
+   border-top: none;
+   border-bottom: none;
+}
