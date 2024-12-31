@@ -18,7 +18,7 @@ export const defaultProps = {
    },
 } as Required<IOSSwitchProps>
 
-const SimpleSwitch: FC<IOSSwitchProps> = props => {
+const IOSSwitch: FC<IOSSwitchProps> = props => {
    const {
       classes: { wrapper, toggle_container, toggle_label, toggle_switch, switch_label, toggle_checkbox },
       ...otherProps
@@ -46,4 +46,4 @@ const SimpleSwitch: FC<IOSSwitchProps> = props => {
    )
 }
 
-export default SimpleSwitch
+export default IOSSwitch

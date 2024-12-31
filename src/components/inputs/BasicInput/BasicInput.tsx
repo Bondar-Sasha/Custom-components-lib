@@ -15,12 +15,12 @@ const Inputs: IInputs = {
    outlined: OutlinedInput,
 }
 interface CustomProps {
-   variant: keyof IInputs
+   variant?: keyof IInputs
 }
 
 export type BasicInputProps = CustomProps & (FilledInputProps | OutlinedInputProps | StandardInputProps)
 
-const BasicInput: FC<BasicInputProps> = ({ variant, ...props }) => {
+const BasicInput: FC<BasicInputProps> = ({ variant = 'standard', ...props }) => {
    const InputComponent = Inputs[variant]
    return <InputComponent {...props} />
 }

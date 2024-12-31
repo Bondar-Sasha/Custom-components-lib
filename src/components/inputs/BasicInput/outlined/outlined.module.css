@@ -5,7 +5,7 @@
 }
 
 .wrapper > .input:is(:not(:placeholder-shown), :focus) {
-   border: 2px solid var(--theme);
+   border: 1px solid var(--theme);
 }
 
 .input {

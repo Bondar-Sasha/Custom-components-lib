@@ -29,11 +29,10 @@ const BasicModal: FC<BasicModalProps> = props => {
    }
    if (!open) return null
 
-   return createPortal(
+   return (
       <div className={styles.blackout} onClick={handleClose}>
          <div {...otherProps} className={preparedClasses} onClick={handleChildClick}></div>
-      </div>,
-      document.body,
+      </div>
    )
 }
 

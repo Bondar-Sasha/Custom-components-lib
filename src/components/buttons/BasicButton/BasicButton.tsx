@@ -16,12 +16,12 @@ const Buttons: IButtons = {
 }
 
 interface CustomProps {
-   variant: keyof IButtons
+   variant?: keyof IButtons
 }
 
 export type BasicButtonProps = CustomProps & (TextButtonProps | ContainedButtonProps | OutlinedButtonProps)
 
-const BasicButton: FC<BasicButtonProps> = ({ variant, ...props }) => {
+const BasicButton: FC<BasicButtonProps> = ({ variant = 'contained', ...props }) => {
    const ButtonComponent = Buttons[variant]
    return <ButtonComponent {...props} />
 }

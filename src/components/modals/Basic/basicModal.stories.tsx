@@ -4,6 +4,7 @@ import { FC, useState } from 'react'
 
 import BasicModalTemplate, { BasicModalProps } from './BasicModal'
 import BasicButton from '../../buttons/BasicButton/BasicButton'
+import { createPortal } from 'react-dom'
 
 const BasicModal: FC<BasicModalProps> = props => {
    const [modalState, setModalState] = useState<boolean>(false)
@@ -22,11 +23,14 @@ const BasicModal: FC<BasicModalProps> = props => {
             size="small"
             value="show"
          />
-         <BasicModalTemplate {...props} open={modalState} onClose={handleClose}>
-            <h2>Text in a modal</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-            <BasicButton variant="outlined" value="close" onClick={handleClose} />
-         </BasicModalTemplate>
+         {createPortal(
+            <BasicModalTemplate {...props} open={modalState} onClose={handleClose}>
+               <h2>Text in a modal</h2>
+               <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+               <BasicButton variant="outlined" value="close" onClick={handleClose} />
+            </BasicModalTemplate>,
+            document.body,
+         )}
       </>
    )
 }
