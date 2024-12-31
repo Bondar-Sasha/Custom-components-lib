@@ -48,6 +48,18 @@ const meta: Meta<typeof SimpleCheckbox> = {
             type: {},
          },
       },
+      onClick: {
+         control: 'object',
+         description: 'Event triggered when the checkbox was clicked.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the checkbox field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the checkbox field loses focus.',
+      },
    },
    args: {},
 }

@@ -32,6 +32,18 @@ const meta: Meta<typeof BasicSelect> = {
             type: {},
          },
       },
+      onClick: {
+         control: 'object',
+         description: 'Event triggered when the select was clicked.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the select field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the select field loses focus.',
+      },
    },
    args: {},
 }

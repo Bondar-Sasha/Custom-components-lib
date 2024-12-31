@@ -60,6 +60,18 @@ const meta: Meta<typeof BasicSwitch> = {
             type: {},
          },
       },
+      onClick: {
+         control: 'object',
+         description: 'Event triggered when the switch was clicked.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the switch field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the switch field loses focus.',
+      },
    },
    args: {},
 }

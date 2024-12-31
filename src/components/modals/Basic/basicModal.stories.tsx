@@ -65,6 +65,18 @@ const meta: Meta<typeof BasicModal> = {
          },
          description: 'Modal content.',
       },
+      onClick: {
+         control: 'object',
+         description: 'Event triggered when the modal was clicked.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the modal field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the modal field loses focus.',
+      },
    },
    args: {},
 }

@@ -23,7 +23,7 @@ const meta: Meta<typeof BasicButton> = {
          control: 'text',
          description: 'Your customs styles for button.',
          table: {
-            defaultValue: { summary: String(defaultPrototypeProps.value) },
+            defaultValue: { summary: String(defaultPrototypeProps.className) },
             type: {},
          },
       },
@@ -57,7 +57,6 @@ const meta: Meta<typeof BasicButton> = {
             type: 'select',
          },
          table: {
-            defaultValue: { summary: 'contained' },
             type: {},
          },
          description: 'Button type.',
@@ -71,6 +70,18 @@ const meta: Meta<typeof BasicButton> = {
             type: {},
          },
          description: 'Is button disabled.',
+      },
+      onClick: {
+         control: 'object',
+         description: 'Event triggered when the button was clicked.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the button field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the button field loses focus.',
       },
    },
    args: {},

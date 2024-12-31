@@ -71,6 +71,18 @@ const meta: Meta<typeof BasicInput> = {
          },
          description: 'Input variant.',
       },
+      onChange: {
+         control: 'object',
+         description: 'Event triggered when the value changes.',
+      },
+      onFocus: {
+         control: 'object',
+         description: 'Event triggered when the input field receives focus.',
+      },
+      onBlur: {
+         control: 'object',
+         description: 'Event triggered when the input field loses focus.',
+      },
    },
    args: {},
 }
