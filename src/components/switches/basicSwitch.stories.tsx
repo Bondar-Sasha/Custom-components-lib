@@ -1,20 +1,20 @@
 import React, { FC, useState, ChangeEventHandler } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import switchSizes from '../utils/sizes'
-import IOSSwitchTemplate, { defaultProps, IOSSwitchProps } from './IOSSwitch'
+import switchSizes from './utils/sizes'
+import BasicSwitchTemplate, { BasicSwitchProps } from './'
 
-const IOSSwitch: FC<IOSSwitchProps> = props => {
+const BasicSwitch: FC<BasicSwitchProps> = props => {
    const [state, setState] = useState<boolean>(false)
    const handleClick: ChangeEventHandler<HTMLInputElement> = () => {
       setState(prev => !prev)
    }
-   return <IOSSwitchTemplate checked={state} {...props} onChange={handleClick} />
+   return <BasicSwitchTemplate checked={state} {...props} onChange={handleClick} />
 }
 
-const meta: Meta<typeof IOSSwitch> = {
-   title: 'Switches/IOSSwitch',
-   component: IOSSwitch,
+const meta: Meta<typeof BasicSwitch> = {
+   title: 'Switches/BasicSwitch',
+   component: BasicSwitch,
    parameters: {
       layout: 'centered',
    },
@@ -24,7 +24,7 @@ const meta: Meta<typeof IOSSwitch> = {
          control: 'text',
          description: 'Label for switch.',
          table: {
-            defaultValue: { summary: defaultProps.label },
+            defaultValue: { summary: '' },
             type: {},
          },
       },
@@ -36,7 +36,18 @@ const meta: Meta<typeof IOSSwitch> = {
          },
          description: 'Switch size.',
          table: {
-            defaultValue: { summary: defaultProps.switchSize },
+            defaultValue: { summary: 'medium' },
+            type: {},
+         },
+      },
+      variant: {
+         options: ['iOS'],
+         control: {
+            type: 'select',
+         },
+         description: 'Switch variant.',
+         table: {
+            defaultValue: { summary: 'iOS' },
             type: {},
          },
       },
@@ -45,7 +56,7 @@ const meta: Meta<typeof IOSSwitch> = {
          control: 'boolean',
          description: 'Whether the switch is checked.',
          table: {
-            defaultValue: { summary: String(defaultProps.checked) },
+            defaultValue: { summary: 'false' },
             type: {},
          },
       },

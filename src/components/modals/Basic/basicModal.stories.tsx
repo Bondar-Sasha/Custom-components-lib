@@ -24,7 +24,7 @@ const BasicModal: FC<BasicModalProps> = props => {
             value="show"
          />
          {createPortal(
-            <BasicModalTemplate {...props} open={modalState} onClose={handleClose}>
+            <BasicModalTemplate open={modalState} {...props} onClose={handleClose}>
                <h2>Text in a modal</h2>
                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
                <BasicButton variant="outlined" value="close" onClick={handleClose} />
@@ -42,7 +42,30 @@ const meta: Meta<typeof BasicModal> = {
       layout: 'centered',
    },
    tags: ['autodocs', 'wip'],
-   argTypes: {},
+   argTypes: {
+      open: {
+         control: 'boolean',
+         table: {
+            defaultValue: { summary: 'false' },
+            type: {},
+         },
+         description: 'Is modal open.',
+      },
+      onClose: {
+         control: 'object',
+         table: {
+            type: {},
+         },
+         description: 'Function, calling when modal should close.',
+      },
+      children: {
+         control: 'object',
+         table: {
+            type: {},
+         },
+         description: 'Modal content.',
+      },
+   },
    args: {},
 }
 
@@ -53,7 +76,7 @@ export const Primary: Story = {
    parameters: {
       docs: {
          description: {
-            story: 'Input without styles.',
+            story: 'Modal without passed styles.',
          },
       },
    },
