@@ -16,6 +16,7 @@ export default {
    externals: {
       react: 'react',
       'react-dom': 'react-dom',
+      'react-icons': 'react-icons',
    },
    module: {
       rules: [

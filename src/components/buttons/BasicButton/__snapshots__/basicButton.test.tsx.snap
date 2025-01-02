@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicButton contained 1`] = `
+<div>
+  <button
+    class="basic large containedButton "
+  >
+    test button
+  </button>
+</div>
+`;
+
+exports[`BasicButton default 1`] = `
+<div>
+  <button
+    class="basic medium containedButton "
+  >
+    test button
+  </button>
+</div>
+`;
+
+exports[`BasicButton outlined 1`] = `
+<div>
+  <button
+    class="basic small outlinedButton "
+  >
+    test button
+  </button>
+</div>
+`;
+
+exports[`BasicButton text 1`] = `
+<div>
+  <button
+    class="basic medium textButton "
+  >
+    test button
+  </button>
+</div>
+`;

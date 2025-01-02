@@ -20,10 +20,10 @@ const variants = {
    outlined: outlinedButton.outlinedButton,
 }
 
-const TextButton: FC<BasicButtonProps> = ({ className = '', size = 'medium', variant = 'contained', ...props }) => {
+const BasicButton: FC<BasicButtonProps> = ({ className = '', size = 'medium', variant = 'contained', ...props }) => {
    const classes = [getSize(size), variants[variant], className].join(' ')
 
    return <Prototype {...props} className={classes} />
 }
 
-export default TextButton
+export default BasicButton
