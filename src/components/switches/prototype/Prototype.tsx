@@ -1,5 +1,4 @@
 import React, { InputHTMLAttributes, FC } from 'react'
-import switchSizes from '../utils/sizes'
 import styles from './prototype.module.css'
 
 interface Classes {
@@ -13,7 +12,6 @@ interface Classes {
 
 interface PrototypeCustomProps {
    label?: string
-   switchSize?: keyof typeof switchSizes
    classes?: Classes
 }
 
@@ -22,7 +20,6 @@ export type PrototypeProps = PrototypeCustomProps & InputHTMLAttributes<HTMLInpu
 export const defaultProps = {
    label: '',
    checked: false,
-   switchSize: 'medium',
    classes: {
       wrapper: '',
       toggle_container: '',
@@ -35,7 +32,6 @@ export const defaultProps = {
 
 const Prototype: FC<PrototypeProps> = props => {
    const {
-      switchSize,
       label,
       classes: { wrapper, toggle_container, toggle_label, toggle_switch, switch_label, toggle_checkbox },
       ...otherProps
@@ -54,14 +50,7 @@ const Prototype: FC<PrototypeProps> = props => {
       <div className={preparedWrapper}>
          <div className={preparedToggle_container}>
             <input {...otherProps} type="checkbox" className={preparedToggle_checkbox} id={switchId} />
-            <label
-               style={{
-                  width: switchSizes[switchSize].width,
-                  height: switchSizes[switchSize].height,
-               }}
-               className={preparedToggle_label}
-               htmlFor={switchId}
-            >
+            <label className={preparedToggle_label} htmlFor={switchId}>
                <span className={preparedToggle_switch}></span>
             </label>
          </div>

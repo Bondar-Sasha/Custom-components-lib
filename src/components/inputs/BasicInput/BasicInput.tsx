@@ -1,28 +1,32 @@
 import React, { FC } from 'react'
-import FilledInput, { FilledInputProps } from './filled/FilledInput'
-import OutlinedInput, { OutlinedInputProps } from './outlined/OutlinedInput'
-import StandardInput, { StandardInputProps } from './standard/StandardInput'
+import Prototype, { PrototypeProps } from '../prototype/Prototype'
 
-interface IInputs {
-   standard: FC<StandardInputProps>
-   filled: FC<FilledInputProps>
-   outlined: FC<OutlinedInputProps>
+import filledInput from './variants/filled.module.css'
+import outlinedInput from './variants/outlined.module.css'
+import standardInput from './variants/standard.module.css'
+
+export interface BasicInputCustomProps {
+   variant?: 'filled' | 'outlined' | 'standard'
+}
+export type BasicInputProps = BasicInputCustomProps & PrototypeProps
+
+const variants = {
+   filled: filledInput,
+   outlined: outlinedInput,
+   standard: standardInput,
 }
 
-const Inputs: IInputs = {
-   filled: FilledInput,
-   standard: StandardInput,
-   outlined: OutlinedInput,
-}
-interface CustomProps {
-   variant?: keyof IInputs
-}
+const BasicInput: FC<BasicInputProps> = ({
+   classes = { input: '', wrapper: '', prompt: '' },
+   variant = 'standard',
+   ...props
+}) => {
+   const variantStyle = variants[variant]
+   const preparedWrapper = [variantStyle.wrapper, classes.wrapper].join(' ')
+   const preparedInput = [variantStyle.input, classes.input].join(' ')
+   const preparedPrompt = [variantStyle.prompt, classes.prompt].join(' ')
 
-export type BasicInputProps = CustomProps & (FilledInputProps | OutlinedInputProps | StandardInputProps)
-
-const BasicInput: FC<BasicInputProps> = ({ variant = 'standard', ...props }) => {
-   const InputComponent = Inputs[variant]
-   return <InputComponent {...props} />
+   return <Prototype {...props} classes={{ input: preparedInput, wrapper: preparedWrapper, prompt: preparedPrompt }} />
 }
 
 export default BasicInput

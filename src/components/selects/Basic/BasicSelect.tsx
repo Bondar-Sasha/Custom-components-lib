@@ -1,32 +1,28 @@
-import React, { FocusEventHandler, HTMLAttributes, MouseEventHandler, useEffect, useReducer } from 'react'
-import { FC } from 'react'
+import React, { FC, FocusEventHandler, HTMLAttributes, MouseEventHandler, useEffect, useReducer } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 
 import wrapperStyles from './styles/wrapper.module.css'
 import promptStyles from './styles/prompt.module.css'
 import arrowStyles from './styles/arrow.module.css'
 import selectStyles from './styles/select.module.css'
-import BasicSelectItem, { IBasicSelectItem } from './Item/BasicSelectItem'
+import BasicSelectItem, { ItemProps } from './Item/BasicSelectItem'
 import initSelectState, { selectReducer } from './selectReducer'
 
-export interface BasicSelectProps {
+interface BasicSelectCustomProps {
    prompt?: string
    clear?: boolean
-   options?: IBasicSelectItem[]
+   options?: ItemProps[]
 }
 
-export type BasicSelect = BasicSelectProps & HTMLAttributes<HTMLDivElement>
+export type BasicSelectProps = BasicSelectCustomProps & HTMLAttributes<HTMLDivElement>
 
-export const defaultProps = {
-   className: '',
-   prompt: 'choice',
-   options: [{ content: 'first_option' }],
-   clear: false,
-} as Required<BasicSelect>
-
-const BasicSelect: FC<BasicSelect> = props => {
-   const { prompt, className, clear, options, ...preparedProps } = { ...defaultProps, ...props }
-
+const BasicSelect: FC<BasicSelectProps> = ({
+   prompt = 'choice',
+   className = '',
+   clear = false,
+   options = [{ content: 'first_option' }],
+   ...props
+}) => {
    const [selectState, selectDispatch] = useReducer(selectReducer, initSelectState)
    const { arrowState, visibilityState, promptState, currentValueState, blurState } = selectState
 
@@ -63,7 +59,7 @@ const BasicSelect: FC<BasicSelect> = props => {
    return (
       <div className={wrapperStyles.wrapper} onClick={handleWrapperClick} onBlur={handleOptionsBlur} tabIndex={0}>
          <label className={classesForPrompt}>{prompt}</label>
-         <div {...preparedProps} className={mainClasses}>
+         <div {...props} className={mainClasses}>
             <span>{currentValueState}</span>
          </div>
          {visibilityState && (

@@ -58,6 +58,13 @@ const meta: Meta<typeof BasicModal> = {
          },
          description: 'Function, calling when modal should close.',
       },
+      className: {
+         control: 'text',
+         description: 'Styles for the modal.',
+         table: {
+            type: {},
+         },
+      },
       children: {
          control: 'object',
          table: {

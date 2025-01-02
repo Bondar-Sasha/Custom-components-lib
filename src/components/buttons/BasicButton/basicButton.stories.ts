@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import BasicButton from './BasicButton'
-import buttonSizes from '../utils/sizes'
-import { defaultPrototypeProps } from '../prototype/Prototype'
 
 const meta: Meta<typeof BasicButton> = {
    title: 'Buttons/BasicButtons',
@@ -15,7 +13,6 @@ const meta: Meta<typeof BasicButton> = {
          control: 'text',
          description: 'Text in button.',
          table: {
-            defaultValue: { summary: String(defaultPrototypeProps.value) },
             type: {},
          },
       },
@@ -23,18 +20,17 @@ const meta: Meta<typeof BasicButton> = {
          control: 'text',
          description: 'Your customs styles for button.',
          table: {
-            defaultValue: { summary: String(defaultPrototypeProps.className) },
             type: {},
          },
       },
 
       size: {
-         options: Object.keys(buttonSizes) as Array<keyof typeof buttonSizes>,
+         options: ['small', 'medium', 'large'],
          control: {
             type: 'select',
          },
          table: {
-            defaultValue: { summary: defaultPrototypeProps.size },
+            defaultValue: { summary: 'medium' },
             type: {},
          },
          description: 'Button size.',
@@ -66,7 +62,6 @@ const meta: Meta<typeof BasicButton> = {
             type: 'boolean',
          },
          table: {
-            defaultValue: { summary: 'false' },
             type: {},
          },
          description: 'Is button disabled.',
@@ -84,7 +79,9 @@ const meta: Meta<typeof BasicButton> = {
          description: 'Event triggered when the button field loses focus.',
       },
    },
-   args: {},
+   args: {
+      value: 'click',
+   },
 }
 
 export default meta

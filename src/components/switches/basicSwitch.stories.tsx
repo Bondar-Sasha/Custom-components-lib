@@ -1,8 +1,7 @@
 import React, { FC, useState, ChangeEventHandler } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import switchSizes from './utils/sizes'
-import BasicSwitchTemplate, { BasicSwitchProps } from './'
+import BasicSwitchTemplate, { BasicSwitchProps } from './BasicSwitch'
 
 const BasicSwitch: FC<BasicSwitchProps> = props => {
    const [state, setState] = useState<boolean>(false)
@@ -29,17 +28,6 @@ const meta: Meta<typeof BasicSwitch> = {
          },
       },
 
-      switchSize: {
-         options: Object.keys(switchSizes) as Array<keyof typeof switchSizes>,
-         control: {
-            type: 'select',
-         },
-         description: 'Switch size.',
-         table: {
-            defaultValue: { summary: 'medium' },
-            type: {},
-         },
-      },
       variant: {
          options: ['iOS'],
          control: {
@@ -50,6 +38,15 @@ const meta: Meta<typeof BasicSwitch> = {
             defaultValue: { summary: 'iOS' },
             type: {},
          },
+      },
+      disabled: {
+         control: {
+            type: 'boolean',
+         },
+         table: {
+            type: {},
+         },
+         description: 'Is button disabled.',
       },
 
       checked: {
@@ -92,9 +89,9 @@ export const BasicWithLabel: Story = {
    parameters: {
       docs: {
          description: {
-            story: 'Basic switch with label.',
+            story: 'Switch with label.',
          },
       },
    },
-   args: { label: 'label', switchSize: 'small' },
+   args: { label: 'label' },
 }

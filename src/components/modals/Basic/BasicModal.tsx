@@ -1,8 +1,6 @@
-import React, { HTMLProps, MouseEventHandler } from 'react'
-import { FC } from 'react'
+import React, { FC, HTMLProps, MouseEventHandler } from 'react'
 
 import styles from './basicModal.module.css'
-import { createPortal } from 'react-dom'
 
 interface BasicModalCustomProps {
    open?: boolean
@@ -10,15 +8,7 @@ interface BasicModalCustomProps {
 }
 export type BasicModalProps = BasicModalCustomProps & HTMLProps<HTMLDivElement>
 
-export const defaultProps = {
-   children: null,
-   open: false,
-   onClose: () => {},
-   className: '',
-} as Required<BasicModalProps>
-
-const BasicModal: FC<BasicModalProps> = props => {
-   const { className, open, onClose, ...otherProps } = { ...defaultProps, ...props }
+const BasicModal: FC<BasicModalProps> = ({ className = '', open = false, onClose = () => {}, ...props }) => {
    const preparedClasses = [styles.modal, className].join(' ')
 
    const handleClose: MouseEventHandler<HTMLDivElement> = e => {
@@ -31,7 +21,7 @@ const BasicModal: FC<BasicModalProps> = props => {
 
    return (
       <div className={styles.blackout} onClick={handleClose}>
-         <div {...otherProps} className={preparedClasses} onClick={handleChildClick}></div>
+         <div {...props} className={preparedClasses} onClick={handleChildClick}></div>
       </div>
    )
 }

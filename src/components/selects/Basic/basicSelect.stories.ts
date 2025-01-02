@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import BasicSelect, { defaultProps } from './BasicSelect'
+import BasicSelect from './BasicSelect'
 
 const meta: Meta<typeof BasicSelect> = {
    title: 'Selects/BasicSelect',
@@ -13,7 +13,14 @@ const meta: Meta<typeof BasicSelect> = {
          control: 'text',
          description: 'Prompt in the select.',
          table: {
-            defaultValue: { summary: defaultProps.prompt },
+            defaultValue: { summary: 'choice' },
+            type: {},
+         },
+      },
+      className: {
+         control: 'text',
+         description: 'Styles for the select.',
+         table: {
             type: {},
          },
       },
@@ -21,7 +28,7 @@ const meta: Meta<typeof BasicSelect> = {
          control: 'boolean',
          description: 'Clear the select.',
          table: {
-            defaultValue: { summary: String(defaultProps.clear) },
+            defaultValue: { summary: 'false' },
             type: {},
          },
       },
@@ -59,7 +66,5 @@ export const Basic: Story = {
          },
       },
    },
-   args: {
-      prompt: 'age',
-   },
+   args: {},
 }

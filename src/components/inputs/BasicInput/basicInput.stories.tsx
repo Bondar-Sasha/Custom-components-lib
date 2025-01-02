@@ -3,14 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ChangeEvent, FC, useState } from 'react'
 
 import BasicInputTemplate, { BasicInputProps } from './BasicInput'
-import { defaultPrototypeProps } from '../prototype/Prototype'
 
 const BasicInput: FC<BasicInputProps> = props => {
-   const [value, setValue] = useState<string>('')
+   const [valueState, setValue] = useState<string>('')
 
    const handleSetValue = (e: ChangeEvent<HTMLInputElement>) => setValue(() => e.target.value)
 
-   return <BasicInputTemplate value={value} onChange={handleSetValue} {...props} />
+   return <BasicInputTemplate onChange={handleSetValue} {...props} value={valueState} />
 }
 
 const meta: Meta<typeof BasicInput> = {
@@ -21,18 +20,9 @@ const meta: Meta<typeof BasicInput> = {
    },
    tags: ['autodocs', 'wip'],
    argTypes: {
-      bgColor: {
-         control: 'text',
-         table: {
-            defaultValue: { summary: defaultPrototypeProps.bgColor },
-            type: {},
-         },
-         description: 'Input background.',
-      },
       placeholder: {
          control: 'text',
          table: {
-            defaultValue: { summary: defaultPrototypeProps.placeholder },
             type: {},
          },
          description: 'Input placeholder.',
@@ -47,7 +37,6 @@ const meta: Meta<typeof BasicInput> = {
       value: {
          control: 'text',
          table: {
-            defaultValue: { summary: String(defaultPrototypeProps.value) },
             type: {},
          },
          description: 'Input value.',
@@ -56,7 +45,7 @@ const meta: Meta<typeof BasicInput> = {
          control: 'boolean',
          description: 'Behaver when error.',
          table: {
-            defaultValue: { summary: String(defaultPrototypeProps.error) },
+            defaultValue: { summary: 'false' },
             type: {},
          },
       },
@@ -84,7 +73,7 @@ const meta: Meta<typeof BasicInput> = {
          description: 'Event triggered when the input field loses focus.',
       },
    },
-   args: {},
+   args: { placeholder: 'write' },
 }
 
 export default meta
