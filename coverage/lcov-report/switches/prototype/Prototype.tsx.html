@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">89.65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>72/72</span>
+                <span class='fraction'>52/58</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">89.65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>72/72</span>
+                <span class='fraction'>52/58</span>
             </div>
         
             
@@ -121,34 +121,7 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -170,13 +143,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -226,45 +198,31 @@ interface PrototypeCustomProps {
 &nbsp;
 export type PrototypeProps = PrototypeCustomProps &amp; InputHTMLAttributes&lt;HTMLInputElement&gt;
 &nbsp;
-export const defaultProps = {
-   label: '',
-   checked: false,
-   classes: {
-      wrapper: '',
-      toggle_container: '',
-      toggle_label: '',
-      toggle_switch: '',
-      switch_label: '',
-      toggle_checkbox: '',
+const Prototype: FC&lt;PrototypeProps&gt; = ({
+   label = '',
+   classes<span class="branch-0 cbranch-no" title="branch not covered" > = {</span>
+<span class="cstat-no" title="statement not covered" >      wrapper: '',</span>
+<span class="cstat-no" title="statement not covered" >      toggle_container: '',</span>
+<span class="cstat-no" title="statement not covered" >      toggle_label: '',</span>
+<span class="cstat-no" title="statement not covered" >      toggle_switch: '',</span>
+<span class="cstat-no" title="statement not covered" >      switch_label: '',</span>
+<span class="cstat-no" title="statement not covered" >      toggle_checkbox: '',</span>
    },
-} as Required&lt;PrototypeProps&gt;
-&nbsp;
-const Prototype: FC&lt;PrototypeProps&gt; = props =&gt; {
-   const {
-      label,
-      classes: { wrapper, toggle_container, toggle_label, toggle_switch, switch_label, toggle_checkbox },
-      ...otherProps
-   } = { ...defaultProps, ...props }
-&nbsp;
+   ...props
+}) =&gt; {
    const switchId = `switch-${Math.random().toString(36).substring(2, 11)}`
 &nbsp;
-   const preparedWrapper = [styles.wrapper, wrapper].join(' ')
-   const preparedToggle_container = [styles.toggle_container, toggle_container].join(' ')
-   const preparedToggle_label = [styles.toggle_label, toggle_label].join(' ')
-   const preparedToggle_checkbox = [styles.toggle_checkbox, toggle_checkbox].join(' ')
-   const preparedToggle_switch = [styles.toggle_switch, toggle_switch].join(' ')
-   const preparedSwitch_label = [styles.switch_label, switch_label].join(' ')
+   const preparedWrapper = [styles.wrapper, classes.wrapper].join(' ')
+   const preparedToggle_container = [styles.toggle_container, classes.toggle_container].join(' ')
+   const preparedToggle_label = [styles.toggle_label, classes.toggle_label].join(' ')
+   const preparedToggle_checkbox = [styles.toggle_checkbox, classes.toggle_checkbox].join(' ')
+   const preparedToggle_switch = [styles.toggle_switch, classes.toggle_switch].join(' ')
+   const preparedSwitch_label = [styles.switch_label, classes.switch_label].join(' ')
 &nbsp;
    return (
       &lt;div data-testid="wrapper" className={preparedWrapper}&gt;
          &lt;div data-testid="switch-wrapper" className={preparedToggle_container}&gt;
-            &lt;input
-               data-testid="switch"
-               {...otherProps}
-               type="switch"
-               className={preparedToggle_checkbox}
-               id={switchId}
-            /&gt;
+            &lt;input data-testid="switch" {...props} type="checkbox" className={preparedToggle_checkbox} id={switchId} /&gt;
             &lt;label data-testid="switch-display-label" className={preparedToggle_label} htmlFor={switchId}&gt;
                &lt;span className={preparedToggle_switch}&gt;&lt;/span&gt;
             &lt;/label&gt;
@@ -286,7 +244,7 @@ export default Prototype
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-01-03T14:33:57.419Z
+                at 2025-01-03T15:02:12.824Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
