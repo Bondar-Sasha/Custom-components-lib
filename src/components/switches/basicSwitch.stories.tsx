@@ -46,7 +46,7 @@ const meta: Meta<typeof BasicSwitch> = {
          table: {
             type: {},
          },
-         description: 'Is button disabled.',
+         description: 'Is switch disabled.',
       },
 
       checked: {

@@ -17,10 +17,9 @@ interface PrototypeCustomProps {
 
 export type PrototypeProps = PrototypeCustomProps & InputHTMLAttributes<HTMLInputElement>
 
-export const defaultProps = {
-   label: '',
-   checked: false,
-   classes: {
+const Prototype: FC<PrototypeProps> = ({
+   label = '',
+   classes = {
       wrapper: '',
       toggle_container: '',
       toggle_label: '',
@@ -28,28 +27,21 @@ export const defaultProps = {
       switch_label: '',
       toggle_checkbox: '',
    },
-} as Required<PrototypeProps>
-
-const Prototype: FC<PrototypeProps> = props => {
-   const {
-      label,
-      classes: { wrapper, toggle_container, toggle_label, toggle_switch, switch_label, toggle_checkbox },
-      ...otherProps
-   } = { ...defaultProps, ...props }
-
+   ...props
+}) => {
    const switchId = `switch-${Math.random().toString(36).substring(2, 11)}`
 
-   const preparedWrapper = [styles.wrapper, wrapper].join(' ')
-   const preparedToggle_container = [styles.toggle_container, toggle_container].join(' ')
-   const preparedToggle_label = [styles.toggle_label, toggle_label].join(' ')
-   const preparedToggle_checkbox = [styles.toggle_checkbox, toggle_checkbox].join(' ')
-   const preparedToggle_switch = [styles.toggle_switch, toggle_switch].join(' ')
-   const preparedSwitch_label = [styles.switch_label, switch_label].join(' ')
+   const preparedWrapper = [styles.wrapper, classes.wrapper].join(' ')
+   const preparedToggle_container = [styles.toggle_container, classes.toggle_container].join(' ')
+   const preparedToggle_label = [styles.toggle_label, classes.toggle_label].join(' ')
+   const preparedToggle_checkbox = [styles.toggle_checkbox, classes.toggle_checkbox].join(' ')
+   const preparedToggle_switch = [styles.toggle_switch, classes.toggle_switch].join(' ')
+   const preparedSwitch_label = [styles.switch_label, classes.switch_label].join(' ')
 
    return (
       <div data-testid="wrapper" className={preparedWrapper}>
          <div data-testid="switch-wrapper" className={preparedToggle_container}>
-            <input data-testid="switch" {...otherProps} type="switch" className={preparedToggle_switch} id={switchId} />
+            <input data-testid="switch" {...props} type="checkbox" className={preparedToggle_checkbox} id={switchId} />
             <label data-testid="switch-display-label" className={preparedToggle_label} htmlFor={switchId}>
                <span className={preparedToggle_switch}></span>
             </label>

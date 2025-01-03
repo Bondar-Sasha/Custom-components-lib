@@ -8,7 +8,7 @@ const BasicCheckbox: FC<BasicCheckboxProps> = props => {
    const handleClick: MouseEventHandler<HTMLInputElement> = () => {
       setState(prev => !prev)
    }
-   return <BasicCheckboxTemplate checked={state} {...props} onClick={handleClick} />
+   return <BasicCheckboxTemplate {...props} checked={state} onClick={handleClick} />
 }
 
 const meta: Meta<typeof BasicCheckbox> = {
@@ -41,6 +41,15 @@ const meta: Meta<typeof BasicCheckbox> = {
             defaultValue: { summary: 'false' },
             type: {},
          },
+      },
+      disabled: {
+         control: {
+            type: 'boolean',
+         },
+         table: {
+            type: {},
+         },
+         description: 'Is checkbox disabled.',
       },
       onClick: {
          control: 'object',
