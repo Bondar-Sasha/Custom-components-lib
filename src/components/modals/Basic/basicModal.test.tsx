@@ -1,32 +1,45 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 import { render, screen } from '@testing-library/react'
-import BasicModal from './BasicModal'
+import BasicModal, { BasicModalProps } from './BasicModal'
+import userEvent from '@testing-library/user-event'
+
 import '@testing-library/jest-dom'
 
+const ModalWithState: FC<BasicModalProps> = props => {
+   const [isOpen, setIsOpen] = useState(false)
+
+   const handleOpen = () => setIsOpen(true)
+   const handleClose = () => setIsOpen(false)
+
+   return (
+      <>
+         <button onClick={handleOpen} data-testid="open-button">
+            Open Modal
+         </button>
+         <BasicModal open={isOpen} onClose={handleClose}>
+            {props.children}
+            <button data-testid="close-button" onClick={handleClose}>
+               Close
+            </button>
+         </BasicModal>
+      </>
+   )
+}
+
 describe('BasicModal', () => {
-   it('open', () => {
+   it('open and close modal', async () => {
       render(
-         <BasicModal
-            open
-            // eslint-disable-next-line react/no-children-prop
-            children={<div>modal</div>}
-            onClose={() => {
-               console.log('close')
-            }}
-         />,
+         <ModalWithState>
+            <div>modal</div>
+         </ModalWithState>,
       )
 
-      const modal = screen.getByTestId('modal')
+      expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
 
-      expect(modal).toBeInTheDocument()
+      await userEvent.click(screen.getByTestId('open-button'))
+      expect(screen.getByTestId('modal')).toBeInTheDocument()
 
-      expect(modal).toMatchSnapshot()
-   })
-   it('close', () => {
-      render(<BasicModal open={false} />)
-
-      const modal = screen.queryByTestId('modal')
-      expect(modal).not.toBeInTheDocument()
-      expect(modal).toMatchSnapshot()
+      await userEvent.click(screen.getByTestId('close-button'))
+      expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
    })
 })
