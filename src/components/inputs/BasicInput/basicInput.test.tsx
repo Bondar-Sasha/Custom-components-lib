@@ -4,36 +4,78 @@ import BasicInput from './BasicInput'
 import '@testing-library/jest-dom'
 
 describe('BasicInput', () => {
-   it('', () => {})
-   // it('default', () => {
-   //    const { container } = render(<BasicInput value="test" />)
-   //    const button = screen.getByText('test button')
-   //    expect(button).toBeInTheDocument()
-   //    expect(button).toHaveClass('containedButton')
-   //    expect(container).toMatchSnapshot()
-   // })
-   // it('standard', () => {
-   //    const { container } = render(<BasicInput variant="standard" value="test" />)
-   //    const button = screen.getByText('test button')
-   //    expect(button).toBeInTheDocument()
-   //    expect(button).toHaveClass('containedButton')
-   //    expect(button).toHaveClass('large')
-   //    expect(container).toMatchSnapshot()
-   // })
-   // it('text', () => {
-   //    const { container } = render(<BasicInput variant="text" value="test" />)
-   //    const button = screen.getByText('test button')
-   //    expect(button).toBeInTheDocument()
-   //    expect(button).toHaveClass('textButton')
-   //    expect(button).toHaveClass('medium')
-   //    expect(container).toMatchSnapshot()
-   // })
-   // it('outlined', () => {
-   //    const { container } = render(<BasicInput variant="outlined" size="small" value="test" />)
-   //    const button = screen.getByText('test button')
-   //    expect(button).toBeInTheDocument()
-   //    expect(button).toHaveClass('outlinedButton')
-   //    expect(button).toHaveClass('small')
-   //    expect(container).toMatchSnapshot()
-   // })
+   it('default', () => {
+      render(<BasicInput placeholder="test" />)
+      const wrapper = screen.getByTestId('wrapper')
+      const input = screen.getByTestId('input')
+      const label = screen.getByTestId('label-prompt')
+      const uiHelper = screen.getByTestId('ui-helper')
+
+      expect(wrapper).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      expect(label).toBeInTheDocument()
+      expect(uiHelper).toBeInTheDocument()
+
+      expect(wrapper).toMatchSnapshot()
+   })
+   it('error', () => {
+      render(<BasicInput error placeholder="test" />)
+      const wrapper = screen.getByTestId('wrapper')
+      const input = screen.getByTestId('input')
+      const label = screen.getByTestId('label-prompt')
+      const uiHelper = screen.getByTestId('ui-helper')
+
+      expect(wrapper).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      expect(label).toBeInTheDocument()
+      expect(uiHelper).toBeInTheDocument()
+
+      expect(input).toHaveAttribute('placeholder', 'Error')
+      expect(label).toHaveTextContent('Error')
+
+      expect(wrapper).toMatchSnapshot()
+   })
+
+   it('standard', () => {
+      render(<BasicInput variant="standard" placeholder="test" />)
+      const wrapper = screen.getByTestId('wrapper')
+      const input = screen.getByTestId('input')
+      const label = screen.getByTestId('label-prompt')
+      const uiHelper = screen.getByTestId('ui-helper')
+
+      expect(wrapper).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      expect(label).toBeInTheDocument()
+      expect(uiHelper).toBeInTheDocument()
+
+      expect(wrapper).toMatchSnapshot()
+   })
+   it('outlined', () => {
+      render(<BasicInput variant="outlined" placeholder="test" />)
+      const wrapper = screen.getByTestId('wrapper')
+      const input = screen.getByTestId('input')
+      const label = screen.getByTestId('label-prompt')
+      const uiHelper = screen.getByTestId('ui-helper')
+
+      expect(wrapper).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      expect(label).toBeInTheDocument()
+      expect(uiHelper).toBeInTheDocument()
+
+      expect(wrapper).toMatchSnapshot()
+   })
+   it('filled', () => {
+      render(<BasicInput variant="filled" placeholder="test" />)
+      const wrapper = screen.getByTestId('wrapper')
+      const input = screen.getByTestId('input')
+      const label = screen.getByTestId('label-prompt')
+      const uiHelper = screen.getByTestId('ui-helper')
+
+      expect(wrapper).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      expect(label).toBeInTheDocument()
+      expect(uiHelper).toBeInTheDocument()
+
+      expect(wrapper).toMatchSnapshot()
+   })
 })

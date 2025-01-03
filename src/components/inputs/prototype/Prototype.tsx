@@ -27,10 +27,12 @@ const Prototype: FC<PrototypeProps> = ({
 
    const preparedPlaceholder = error ? 'Error' : placeholder
    return (
-      <div className={preparedWrapper}>
-         <input {...props} className={preparedInput} placeholder={preparedPlaceholder} />
-         <label className={preparedPrompt}>{preparedPlaceholder}</label>
-         <div></div>
+      <div data-testid="wrapper" className={preparedWrapper}>
+         <input data-testid="input" {...props} className={preparedInput} placeholder={preparedPlaceholder} />
+         <label data-testid="label-prompt" className={preparedPrompt}>
+            {preparedPlaceholder}
+         </label>
+         <div data-testid="ui-helper"></div>
       </div>
    )
 }

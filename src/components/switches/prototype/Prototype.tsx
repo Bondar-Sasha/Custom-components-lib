@@ -47,15 +47,15 @@ const Prototype: FC<PrototypeProps> = props => {
    const preparedSwitch_label = [styles.switch_label, switch_label].join(' ')
 
    return (
-      <div className={preparedWrapper}>
-         <div className={preparedToggle_container}>
-            <input {...otherProps} type="checkbox" className={preparedToggle_checkbox} id={switchId} />
-            <label className={preparedToggle_label} htmlFor={switchId}>
+      <div data-testid="wrapper" className={preparedWrapper}>
+         <div data-testid="switch-wrapper" className={preparedToggle_container}>
+            <input data-testid="switch" {...otherProps} type="switch" className={preparedToggle_switch} id={switchId} />
+            <label data-testid="switch-display-label" className={preparedToggle_label} htmlFor={switchId}>
                <span className={preparedToggle_switch}></span>
             </label>
          </div>
          {label && (
-            <label className={preparedSwitch_label} htmlFor={switchId}>
+            <label data-testid="switch-label" className={preparedSwitch_label} htmlFor={switchId}>
                {label}
             </label>
          )}

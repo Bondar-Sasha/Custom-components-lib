@@ -57,16 +57,31 @@ const BasicSelect: FC<BasicSelectProps> = ({
    const classesForPrompt = [promptStyles.prompt, promptState ? promptStyles.prompt_move : ''].join(' ')
 
    return (
-      <div className={wrapperStyles.wrapper} onClick={handleWrapperClick} onBlur={handleOptionsBlur} tabIndex={0}>
-         <label className={classesForPrompt}>{prompt}</label>
-         <div {...props} className={mainClasses}>
-            <span>{currentValueState}</span>
+      <div
+         data-testid="wrapper"
+         className={wrapperStyles.wrapper}
+         onClick={handleWrapperClick}
+         onBlur={handleOptionsBlur}
+         tabIndex={0}
+      >
+         <label data-testid="label-prompt" className={classesForPrompt}>
+            {prompt}
+         </label>
+         <div data-testid="display" {...props} className={mainClasses}>
+            <span data-testid="display-text">{currentValueState}</span>
          </div>
          {visibilityState && (
-            <ul className={selectStyles.optionsWrapper} onClick={handleOptionsClick}>
+            <ul data-testid="options" className={selectStyles.optionsWrapper} onClick={handleOptionsClick}>
                {options.map((option, index) => {
                   const { content, ...optionProps } = option
-                  return <BasicSelectItem {...optionProps} key={index} content={content} />
+                  return (
+                     <BasicSelectItem
+                        data-testid={`item-${index + 1}`}
+                        {...optionProps}
+                        key={index}
+                        content={content}
+                     />
+                  )
                })}
             </ul>
          )}

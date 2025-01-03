@@ -21,7 +21,7 @@ const BasicModal: FC<BasicModalProps> = ({ className = '', open = false, onClose
 
    return (
       <div className={styles.blackout} onClick={handleClose}>
-         <div {...props} className={preparedClasses} onClick={handleChildClick}></div>
+         <div data-testid="modal" {...props} className={preparedClasses} onClick={handleChildClick}></div>
       </div>
    )
 }

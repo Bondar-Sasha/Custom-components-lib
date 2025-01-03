@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicInput default 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-testid="input"
+    placeholder="test"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    test
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`BasicInput error 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input error input "
+    data-testid="input"
+    placeholder="Error"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    Error
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`BasicInput filled 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-testid="input"
+    placeholder="test"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    test
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`BasicInput outlined 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-testid="input"
+    placeholder="test"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    test
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`BasicInput standard 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-testid="input"
+    placeholder="test"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    test
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;

@@ -31,13 +31,13 @@ const BasicCheckbox: FC<BasicCheckboxProps> = ({
    const checkboxLabel = [styles.checkboxLabel, classes.checkboxLabel].join(' ')
 
    return (
-      <div className={wrapper}>
-         <div className={checkboxWrapper}>
-            <input {...props} type="checkbox" className={checkbox} id={checkboxId} />
-            <label className={checkboxInterface} htmlFor={checkboxId}></label>
+      <div data-testid="wrapper" className={wrapper}>
+         <div data-testid="checkbox-wrapper" className={checkboxWrapper}>
+            <input data-testid="checkbox" {...props} type="checkbox" className={checkbox} id={checkboxId} />
+            <label data-testid="checkbox-display-label" className={checkboxInterface} htmlFor={checkboxId}></label>
          </div>
          {label && (
-            <label className={checkboxLabel} htmlFor={checkboxId}>
+            <label data-testid="checkbox-label" className={checkboxLabel} htmlFor={checkboxId}>
                {label}
             </label>
          )}
