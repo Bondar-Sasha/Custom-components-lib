@@ -5,4 +5,4 @@ import BasicSelect from './components/selects/Basic/BasicSelect'
 import BasicSwitch from './components/switches/BasicSwitch'
 import BasicModal from './components/modals/Basic/BasicModal'
 
-export default { BasicButton, BasicInput, BasicModal, BasicCheckbox, BasicSelect, BasicSwitch }
+export { BasicButton, BasicInput, BasicModal, BasicCheckbox, BasicSelect, BasicSwitch }

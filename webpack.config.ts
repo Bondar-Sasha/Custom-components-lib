@@ -41,10 +41,4 @@ export default {
          },
       ],
    },
-   optimization: {
-      usedExports: true,
-      splitChunks: {
-         chunks: 'all',
-      },
-   },
 } as webpack.Configuration

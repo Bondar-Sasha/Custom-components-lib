@@ -2,7 +2,7 @@
    "compilerOptions": {
       "target": "es6",
       "module": "commonjs",
-      "jsx": "react",
+      "jsx": "react-jsx",
       "strict": true,
       "esModuleInterop": true,
       "lib": ["DOM", "ESNext"],
@@ -14,9 +14,16 @@
       "allowJs": true,
       "sourceMap": true,
       "declaration": true,
-      "incremental": true,
       "plugins": [{ "name": "typescript-plugin-css-modules" }]
    },
-   "include": ["src"],
-   "exclude": [".storybook", "node_modules", "dist", "src/**/*.stories", "src/**/*.test.*"]
+   "include": ["src/**/*"],
+   "exclude": [
+      ".storybook",
+      "node_modules",
+      "dist",
+      "src/**/*.stories.ts",
+      "src/**/*.stories.tsx",
+      "src/**/*.test.ts",
+      "src/**/*.test.tsx"
+   ]
 }
