@@ -1,12 +1,12 @@
-import { resolve } from 'path'
-import webpack from 'webpack'
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const path = require('path')
 
-export default {
+module.exports = {
    mode: 'production',
    entry: './src/index.ts',
    output: {
       filename: 'index.js',
-      path: resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist'),
       libraryTarget: 'umd',
       clean: true,
    },
@@ -16,7 +16,6 @@ export default {
    externals: {
       react: 'react',
       'react-dom': 'react-dom',
-      'react-icons': 'react-icons',
    },
    module: {
       rules: [
@@ -41,4 +40,4 @@ export default {
          },
       ],
    },
-} as webpack.Configuration
+}

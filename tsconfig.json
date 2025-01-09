@@ -1,29 +1,24 @@
 {
    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
       "jsx": "react-jsx",
-      "strict": true,
       "esModuleInterop": true,
-      "lib": ["DOM", "ESNext"],
-      "rootDir": "src",
-      "outDir": "./dist",
-      "noImplicitAny": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "allowJs": true,
-      "sourceMap": true,
+      "strict": true,
+      "resolveJsonModule": true,
       "declaration": true,
-      "plugins": [{ "name": "typescript-plugin-css-modules" }]
+      "declarationDir": "dist",
+      "emitDeclarationOnly": false,
+      "baseUrl": "./",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "isolatedModules": true,
+      "noFallthroughCasesInSwitch": true
    },
    "include": ["src/**/*"],
-   "exclude": [
-      ".storybook",
-      "node_modules",
-      "dist",
-      "src/**/*.stories.ts",
-      "src/**/*.stories.tsx",
-      "src/**/*.test.ts",
-      "src/**/*.test.tsx"
-   ]
+   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx", "**/*.stories.ts", "**/*.stories.tsx"]
 }

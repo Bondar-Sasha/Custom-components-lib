@@ -9,13 +9,6 @@ const meta: Meta<typeof BasicButton> = {
    },
    tags: ['autodocs', 'wip'],
    argTypes: {
-      value: {
-         control: 'text',
-         description: 'Text in button.',
-         table: {
-            type: {},
-         },
-      },
       className: {
          control: 'text',
          description: 'Your customs styles for button.',
@@ -80,7 +73,7 @@ const meta: Meta<typeof BasicButton> = {
       },
    },
    args: {
-      value: 'click',
+      children: 'click',
    },
 }
 
