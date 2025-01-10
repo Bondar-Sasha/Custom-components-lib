@@ -21,13 +21,16 @@ const BasicModal: FC<BasicModalProps> = props => {
             }}
             variant="contained"
             size="small"
-            value="show"
-         />
+         >
+            show
+         </BasicButton>
          {createPortal(
             <BasicModalTemplate open={modalState} {...props} onClose={handleClose}>
                <h2>Text in a modal</h2>
                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-               <BasicButton variant="outlined" value="close" onClick={handleClose} />
+               <BasicButton variant="outlined" onClick={handleClose}>
+                  close
+               </BasicButton>
             </BasicModalTemplate>,
             document.body,
          )}
