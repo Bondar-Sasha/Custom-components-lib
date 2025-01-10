@@ -67,7 +67,7 @@ const BasicSelect: FC<BasicSelectProps> = ({
          <label data-testid="label-prompt" className={classesForPrompt}>
             {prompt}
          </label>
-         <div data-testid="display" {...props} className={mainClasses}>
+         <div data-testid="display" {...props} data-value={currentValueState} className={mainClasses}>
             <span data-testid="display-text">{currentValueState}</span>
          </div>
          {visibilityState && (
