@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
    mode: 'production',
@@ -17,11 +19,16 @@ module.exports = {
       react: 'react',
       'react-dom': 'react-dom',
    },
+   plugins: [
+      new MiniCssExtractPlugin({
+         filename: 'index.css',
+      }),
+   ],
    module: {
       rules: [
          {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            use: [MiniCssExtractPlugin.loader, 'css-loader'],
          },
          {
             test: /\.tsx?$/,
