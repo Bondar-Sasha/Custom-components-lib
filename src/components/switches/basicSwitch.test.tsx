@@ -3,33 +3,134 @@ import { render, screen } from '@testing-library/react'
 import BasicSwitch from './BasicSwitch'
 import '@testing-library/jest-dom'
 
-describe('BasicSwitch', () => {
-   it('checked', () => {
-      render(<BasicSwitch checked />)
-      const wrapper = screen.getByTestId('wrapper')
-      const switchWrapper = screen.getByTestId('switch-wrapper')
-      const switchInput = screen.getByTestId('switch')
-      const switchDisplayLabel = screen.getByTestId('switch-display-label')
+const testPrefix = '0.111111'.toString().substring(2, 11)
 
-      expect(wrapper).toBeInTheDocument()
-      expect(switchWrapper).toBeInTheDocument()
-      expect(switchDisplayLabel).toBeInTheDocument()
-      expect(switchInput).toBeInTheDocument()
+const getTestId = (str: string, postfix = testPrefix): string => {
+   return str + '-' + postfix
+}
+
+describe('testing BasicSwitch', () => {
+   beforeAll(() => {
+      jest.spyOn(Math, 'random').mockReturnValue(0.111111)
    })
-   it('with label', () => {
-      render(<BasicSwitch label="label" />)
-      const wrapper = screen.getByTestId('wrapper')
-      const switchWrapper = screen.getByTestId('switch-wrapper')
-      const switchInput = screen.getByTestId('switch')
-      const switchDisplayLabel = screen.getByTestId('switch-display-label')
-      const switchLabel = screen.getByTestId('switch-label')
 
-      expect(wrapper).toBeInTheDocument()
-      expect(switchWrapper).toBeInTheDocument()
-      expect(switchDisplayLabel).toBeInTheDocument()
-      expect(switchInput).toBeInTheDocument()
-      expect(switchLabel).toBeInTheDocument()
+   afterAll(() => {
+      jest.restoreAllMocks()
+   })
+   describe("testing switch's classes (prop: classes)", () => {
+      it('if prop was not passed', () => {
+         render(<BasicSwitch />)
 
-      expect(switchLabel).toHaveTextContent('label')
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+      it('passed all classes, each has "class" value', () => {
+         render(
+            <BasicSwitch
+               classes={{
+                  wrapper: 'class',
+                  toggle_container: 'class',
+                  toggle_label: 'class',
+                  toggle_switch: 'class',
+                  switch_label: 'class',
+                  toggle_checkbox: 'class',
+               }}
+            />,
+         )
+
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+
+         expect(elementWrapper).toHaveClass('wrapper wrapper class')
+         expect(elementSwitchWrapper).toHaveClass('toggle_container toggle_container class')
+         expect(elementSwitch).toHaveClass('toggle_checkbox toggle_checkbox class')
+         expect(elementSwitchDisplayLabel).toHaveClass('toggle_label toggle_label class')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+   })
+   describe('testing Switch label (prop: label)', () => {
+      it('if prop was not passed', () => {
+         render(<BasicSwitch />)
+
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+      it('label is text for Switch', () => {
+         render(<BasicSwitch label="text for switch" />)
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+         const elementSwitchLabel = screen.getByTestId(getTestId('switch-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+         expect(elementSwitchLabel).toBeInTheDocument()
+
+         expect(elementSwitchLabel).toHaveTextContent('text for switch')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+   })
+   describe('testing variant (prop: variant)', () => {
+      it('if prop was not passed', () => {
+         render(<BasicSwitch />)
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+      it('variant is iOS', () => {
+         render(<BasicSwitch variant="iOS" />)
+
+         const elementWrapper = screen.getByTestId(getTestId('wrapper'))
+         const elementSwitchWrapper = screen.getByTestId(getTestId('switch-wrapper'))
+         const elementSwitch = screen.getByTestId(getTestId('switch'))
+         const elementSwitchDisplayLabel = screen.getByTestId(getTestId('switch-display-label'))
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementSwitchWrapper).toBeInTheDocument()
+         expect(elementSwitch).toBeInTheDocument()
+         expect(elementSwitchDisplayLabel).toBeInTheDocument()
+
+         expect(elementSwitch).toHaveAttribute('data-switch-type', 'iOS')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
    })
 })

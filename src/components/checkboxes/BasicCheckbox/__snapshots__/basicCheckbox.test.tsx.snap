@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing BasicCheckbox testing checkbox label (prop: label) if prop was not passed 1`] = `
+<div
+  class="wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="checkboxWrapper "
+    data-testid="checkbox-wrapper-111111"
+  >
+    <input
+      class="checkbox "
+      data-testid="checkbox-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="checkboxInterface "
+      data-testid="checkbox-display-label-111111"
+      for="111111"
+    />
+  </div>
+</div>
+`;
+
+exports[`testing BasicCheckbox testing checkbox label (prop: label) label is text for checkbox 1`] = `
+<div
+  class="wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="checkboxWrapper "
+    data-testid="checkbox-wrapper-111111"
+  >
+    <input
+      class="checkbox "
+      data-testid="checkbox-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="checkboxInterface "
+      data-testid="checkbox-display-label-111111"
+      for="111111"
+    />
+  </div>
+  <label
+    class="checkboxLabel "
+    data-testid="checkbox-label-111111"
+    for="111111"
+  >
+    text for checkbox
+  </label>
+</div>
+`;
+
+exports[`testing BasicCheckbox testing checkbox's classes (prop: classes) if prop was not passed 1`] = `
+<div
+  class="wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="checkboxWrapper "
+    data-testid="checkbox-wrapper-111111"
+  >
+    <input
+      class="checkbox "
+      data-testid="checkbox-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="checkboxInterface "
+      data-testid="checkbox-display-label-111111"
+      for="111111"
+    />
+  </div>
+</div>
+`;
+
+exports[`testing BasicCheckbox testing checkbox's classes (prop: classes) passed all classes, each has "class" value 1`] = `
+<div
+  class="wrapper class"
+  data-testid="wrapper-111111"
+>
+  <div
+    class="checkboxWrapper class"
+    data-testid="checkbox-wrapper-111111"
+  >
+    <input
+      class="checkbox class"
+      data-testid="checkbox-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="checkboxInterface class"
+      data-testid="checkbox-display-label-111111"
+      for="111111"
+    />
+  </div>
+</div>
+`;

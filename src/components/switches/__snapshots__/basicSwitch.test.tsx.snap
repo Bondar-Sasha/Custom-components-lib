@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing BasicSwitch testing Switch label (prop: label) if prop was not passed 1`] = `
+<div
+  class="wrapper wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container "
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox "
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label "
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch "
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`testing BasicSwitch testing Switch label (prop: label) label is text for Switch 1`] = `
+<div
+  class="wrapper wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container "
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox "
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label "
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch "
+      />
+    </label>
+  </div>
+  <label
+    class="switch_label switch_label "
+    data-testid="switch-label-111111"
+    for="111111"
+  >
+    text for switch
+  </label>
+</div>
+`;
+
+exports[`testing BasicSwitch testing switch's classes (prop: classes) if prop was not passed 1`] = `
+<div
+  class="wrapper wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container "
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox "
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label "
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch "
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`testing BasicSwitch testing switch's classes (prop: classes) passed all classes, each has "class" value 1`] = `
+<div
+  class="wrapper wrapper class"
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container class"
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox class"
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label class"
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch class"
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`testing BasicSwitch testing variant (prop: variant) if prop was not passed 1`] = `
+<div
+  class="wrapper wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container "
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox "
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label "
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch "
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`testing BasicSwitch testing variant (prop: variant) variant is iOS 1`] = `
+<div
+  class="wrapper wrapper "
+  data-testid="wrapper-111111"
+>
+  <div
+    class="toggle_container toggle_container "
+    data-testid="switch-wrapper-111111"
+  >
+    <input
+      class="toggle_checkbox toggle_checkbox "
+      data-switch-type="iOS"
+      data-testid="switch-111111"
+      id="111111"
+      type="checkbox"
+    />
+    <label
+      class="toggle_label toggle_label "
+      data-testid="switch-display-label-111111"
+      for="111111"
+    >
+      <span
+        class="toggle_switch toggle_switch "
+      />
+    </label>
+  </div>
+</div>
+`;

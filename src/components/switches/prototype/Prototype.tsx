@@ -17,8 +17,13 @@ interface PrototypeCustomProps {
 
 export type PrototypeProps = PrototypeCustomProps & InputHTMLAttributes<HTMLInputElement>
 
+const addPostfix = (str: string, postfix: string): string => {
+   return str + '-' + postfix
+}
+
 const Prototype: FC<PrototypeProps> = ({
    label = '',
+   id = `${Math.random().toString().substring(2, 11)}`,
    classes = {
       wrapper: '',
       toggle_container: '',
@@ -29,8 +34,6 @@ const Prototype: FC<PrototypeProps> = ({
    },
    ...props
 }) => {
-   const switchId = `switch-${Math.random().toString(36).substring(2, 11)}`
-
    const preparedWrapper = [styles.wrapper, classes.wrapper].join(' ')
    const preparedToggle_container = [styles.toggle_container, classes.toggle_container].join(' ')
    const preparedToggle_label = [styles.toggle_label, classes.toggle_label].join(' ')
@@ -39,15 +42,21 @@ const Prototype: FC<PrototypeProps> = ({
    const preparedSwitch_label = [styles.switch_label, classes.switch_label].join(' ')
 
    return (
-      <div data-testid="wrapper" className={preparedWrapper}>
-         <div data-testid="switch-wrapper" className={preparedToggle_container}>
-            <input data-testid="switch" {...props} type="checkbox" className={preparedToggle_checkbox} id={switchId} />
-            <label data-testid="switch-display-label" className={preparedToggle_label} htmlFor={switchId}>
+      <div data-testid={addPostfix('wrapper', id)} className={preparedWrapper}>
+         <div data-testid={addPostfix('switch-wrapper', id)} className={preparedToggle_container}>
+            <input
+               data-testid={addPostfix('switch', id)}
+               id={id}
+               {...props}
+               type="checkbox"
+               className={preparedToggle_checkbox}
+            />
+            <label data-testid={addPostfix('switch-display-label', id)} className={preparedToggle_label} htmlFor={id}>
                <span className={preparedToggle_switch}></span>
             </label>
          </div>
          {label && (
-            <label data-testid="switch-label" className={preparedSwitch_label} htmlFor={switchId}>
+            <label data-testid={addPostfix('switch-label', id)} className={preparedSwitch_label} htmlFor={id}>
                {label}
             </label>
          )}

@@ -1,9 +1,10 @@
 .optionsWrapper {
    padding: 0;
+   margin: 0;
    position: absolute;
    min-width: 100%;
    list-style-type: none;
-   top: 25px;
+   top: 38px;
    left: 0px;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

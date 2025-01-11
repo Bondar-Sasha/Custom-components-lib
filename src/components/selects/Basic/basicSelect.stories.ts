@@ -17,6 +17,13 @@ const meta: Meta<typeof BasicSelect> = {
             type: {},
          },
       },
+      currentValue: {
+         control: 'text',
+         description: 'Controlled value in the select field.',
+         table: {
+            type: {},
+         },
+      },
       className: {
          control: 'text',
          description: 'Styles for the select.',
@@ -42,6 +49,10 @@ const meta: Meta<typeof BasicSelect> = {
       onClick: {
          control: 'object',
          description: 'Event triggered when the select was clicked.',
+      },
+      onChange: {
+         control: 'object',
+         description: 'Function for making select component controlled.',
       },
       onFocus: {
          control: 'object',

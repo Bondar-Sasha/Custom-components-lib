@@ -11,19 +11,34 @@ import initSelectState, { selectReducer } from './selectReducer'
 interface BasicSelectCustomProps {
    prompt?: string
    clear?: boolean
-   options?: ItemProps[]
+   options?: string[]
+   onChange?: ItemProps['onClick']
+   currentValue?: ItemProps['label']
 }
 
 export type BasicSelectProps = BasicSelectCustomProps & HTMLAttributes<HTMLDivElement>
+
+const init =
+   (value: string) =>
+   (initState: typeof initSelectState): typeof initSelectState => {
+      return { ...initState, currentValueState: value }
+   }
+
+const createTestId = (str: string, data?: string): string => {
+   if (data) return str + '-' + data
+   return str
+}
 
 const BasicSelect: FC<BasicSelectProps> = ({
    prompt = 'choice',
    className = '',
    clear = false,
-   options = [{ content: 'first_option' }],
+   options = ['first_option', 'second_option'],
+   currentValue,
+   onChange,
    ...props
 }) => {
-   const [selectState, selectDispatch] = useReducer(selectReducer, initSelectState)
+   const [selectState, selectDispatch] = useReducer(selectReducer, initSelectState, init(currentValue ?? ''))
    const { arrowState, visibilityState, promptState, currentValueState, blurState } = selectState
 
    const handleWrapperClick = () => {
@@ -31,15 +46,15 @@ const BasicSelect: FC<BasicSelectProps> = ({
       selectDispatch({ type: 'arrow', payload: !arrowState })
       selectDispatch({ type: 'blur', payload: true })
    }
-   const handleOptionsClick: MouseEventHandler<HTMLUListElement> = e => {
-      const target = e.target as HTMLLIElement
-      selectDispatch({ type: 'currentValue', payload: target.innerText })
-   }
 
    const handleOptionsBlur: FocusEventHandler<HTMLDivElement> = e => {
-      selectDispatch({ type: 'visibility', payload: false })
-      selectDispatch({ type: 'arrow', payload: false })
-      selectDispatch({ type: 'blur', payload: false })
+      // selectDispatch({ type: 'visibility', payload: false })
+      // selectDispatch({ type: 'arrow', payload: false })
+      // selectDispatch({ type: 'blur', payload: false })
+   }
+   const preparedOptionClick = (value: string) => {
+      if (onChange) onChange(value)
+      selectDispatch({ type: 'currentValue', payload: value })
    }
 
    useEffect(() => {
@@ -49,37 +64,38 @@ const BasicSelect: FC<BasicSelectProps> = ({
       }
       selectDispatch({ type: 'prompt', payload: false })
    }, [currentValueState, blurState])
+
    useEffect(() => {
       if (clear) selectDispatch({ type: 'currentValue', payload: '' })
    }, [clear])
+
    const mainClasses = [selectStyles.select, className].join(' ')
    const classesForArrow = [arrowStyles.arrow, arrowState ? arrowStyles.arrow_top : ''].join(' ')
    const classesForPrompt = [promptStyles.prompt, promptState ? promptStyles.prompt_move : ''].join(' ')
 
    return (
       <div
-         data-testid="wrapper"
+         data-testid={createTestId('wrapper', props.id)}
          className={wrapperStyles.wrapper}
          onClick={handleWrapperClick}
          onBlur={handleOptionsBlur}
          tabIndex={0}
       >
-         <label data-testid="label-prompt" className={classesForPrompt}>
+         <label data-testid={createTestId('label-prompt', props.id)} className={classesForPrompt}>
             {prompt}
          </label>
-         <div data-testid="display" {...props} data-value={currentValueState} className={mainClasses}>
-            <span data-testid="display-text">{currentValueState}</span>
+         <div data-testid={createTestId('display', props.id)} {...props} className={mainClasses}>
+            <span data-testid={createTestId('display-text', props.id)}>{currentValueState}</span>
          </div>
          {visibilityState && (
-            <ul data-testid="options" className={selectStyles.optionsWrapper} onClick={handleOptionsClick}>
+            <ul data-testid={createTestId('options', props.id)} className={selectStyles.optionsWrapper}>
                {options.map((option, index) => {
-                  const { content, ...optionProps } = option
                   return (
                      <BasicSelectItem
-                        data-testid={`item-${index + 1}`}
-                        {...optionProps}
+                        data-testid={createTestId(`item-${index + 1}`, props.id)}
+                        onClick={preparedOptionClick}
                         key={index}
-                        content={content}
+                        label={option}
                      />
                   )
                })}

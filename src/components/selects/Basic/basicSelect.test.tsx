@@ -1,24 +1,83 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 import { render, screen } from '@testing-library/react'
-import BasicSelect from './BasicSelect'
+import BasicSelect, { BasicSelectProps } from './BasicSelect'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-describe('BasicSelect', () => {
-   it('default', async () => {
-      render(<BasicSelect />)
-      const wrapper = screen.getByTestId('wrapper')
-      const display = screen.getByTestId('display')
-      const label = screen.getByTestId('label-prompt')
+const ControlledBasicSelect: FC<BasicSelectProps> = ({ ...props }) => {
+   const [curValue, setCurValue] = useState<string>('')
 
-      expect(wrapper).toBeInTheDocument()
-      expect(display).toBeInTheDocument()
-      expect(screen.getByTestId('display-text')).toBeInTheDocument()
-      expect(label).toBeInTheDocument()
+   const handleSetCurValue = (value: string) => {
+      setCurValue(value)
+   }
+   console.log(curValue)
 
-      await userEvent.click(screen.getByTestId('wrapper'))
-      expect(screen.getByTestId('options')).toBeInTheDocument()
+   return <BasicSelect currentValue={curValue} onChange={() => handleSetCurValue} />
+}
 
-      expect(wrapper).toMatchSnapshot()
+describe('testing BasicSelect', () => {
+   describe('uncontrolled BasicSelect', () => {
+      it('without passed props', async () => {
+         render(<BasicSelect />)
+         const elementWrapper = screen.getByTestId('wrapper')
+         const elementDisplay = screen.getByTestId('display')
+         const elementTextInDisplay = screen.getByTestId('display-text')
+         const elementLabel = screen.getByTestId('label-prompt')
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementDisplay).toBeInTheDocument()
+         expect(elementTextInDisplay).toBeInTheDocument()
+         expect(elementLabel).toBeInTheDocument()
+
+         await userEvent.click(screen.getByTestId('wrapper'))
+         expect(screen.getByTestId('options')).toBeInTheDocument()
+         expect(screen.getByTestId('item-1')).toBeInTheDocument()
+         expect(screen.getByTestId('item-2')).toBeInTheDocument()
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+      it('with prompt (props: prompt)', async () => {
+         render(<BasicSelect prompt="prompt" />)
+         const elementWrapper = screen.getByTestId('wrapper')
+         const elementDisplay = screen.getByTestId('display')
+         const elementTextInDisplay = screen.getByTestId('display-text')
+         const elementLabel = screen.getByTestId('label-prompt')
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementDisplay).toBeInTheDocument()
+         expect(elementTextInDisplay).toBeInTheDocument()
+         expect(elementLabel).toBeInTheDocument()
+
+         expect(elementLabel).toHaveTextContent('prompt')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
+   })
+   describe('controlled BasicSelect', () => {
+      it('interactive', async () => {
+         render(<ControlledBasicSelect />)
+         const elementWrapper = screen.getByTestId('wrapper')
+         const elementDisplay = screen.getByTestId('display')
+         const elementTextInDisplay = screen.getByTestId('display-text')
+         const elementLabel = screen.getByTestId('label-prompt')
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementDisplay).toBeInTheDocument()
+         expect(elementTextInDisplay).toBeInTheDocument()
+         expect(elementLabel).toBeInTheDocument()
+
+         await userEvent.click(screen.getByTestId('wrapper'))
+         expect(screen.getByTestId('options')).toBeInTheDocument()
+         expect(screen.getByTestId('item-1')).toBeInTheDocument()
+         expect(screen.getByTestId('item-2')).toBeInTheDocument()
+
+         await userEvent.click(screen.getByTestId('item-2'))
+
+         expect(screen.queryByTestId('options')).not.toBeInTheDocument()
+
+         expect(screen.getByTestId('display-text')).toHaveTextContent('second_option')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
    })
 })

@@ -17,13 +17,16 @@ export interface BasicCheckboxCustomProps {
 
 export type BasicCheckboxProps = BasicCheckboxCustomProps & InputHTMLAttributes<HTMLInputElement>
 
+const addPostfix = (str: string, postfix: string): string => {
+   return str + '-' + postfix
+}
+
 const BasicCheckbox: FC<BasicCheckboxProps> = ({
    label = '',
-   checked = false,
+   id = `${Math.random().toString().substring(2, 11)}`,
    classes = { wrapper: '', checkbox: '', checkboxWrapper: '', checkboxInterface: '', checkboxLabel: '' },
    ...props
 }) => {
-   const checkboxId = `checkbox-${Math.random().toString(36).substring(2, 11)}`
    const wrapper = [styles.wrapper, classes.wrapper].join(' ')
    const checkboxWrapper = [styles.checkboxWrapper, classes.checkboxWrapper].join(' ')
    const checkbox = [styles.checkbox, classes.checkbox].join(' ')
@@ -31,13 +34,17 @@ const BasicCheckbox: FC<BasicCheckboxProps> = ({
    const checkboxLabel = [styles.checkboxLabel, classes.checkboxLabel].join(' ')
 
    return (
-      <div data-testid="wrapper" className={wrapper}>
-         <div data-testid="checkbox-wrapper" className={checkboxWrapper}>
-            <input data-testid="checkbox" {...props} type="checkbox" className={checkbox} id={checkboxId} />
-            <label data-testid="checkbox-display-label" className={checkboxInterface} htmlFor={checkboxId}></label>
+      <div data-testid={addPostfix('wrapper', id)} className={wrapper}>
+         <div data-testid={addPostfix('checkbox-wrapper', id)} className={checkboxWrapper}>
+            <input data-testid={addPostfix('checkbox', id)} id={id} {...props} type="checkbox" className={checkbox} />
+            <label
+               data-testid={addPostfix('checkbox-display-label', id)}
+               className={checkboxInterface}
+               htmlFor={id}
+            ></label>
          </div>
          {label && (
-            <label data-testid="checkbox-label" className={checkboxLabel} htmlFor={checkboxId}>
+            <label data-testid={addPostfix('checkbox-label', id)} className={checkboxLabel} htmlFor={id}>
                {label}
             </label>
          )}

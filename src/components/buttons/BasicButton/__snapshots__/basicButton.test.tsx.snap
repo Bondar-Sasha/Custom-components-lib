@@ -1,41 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BasicButton contained 1`] = `
-<div>
-  <button
-    class="basic large containedButton "
-  >
-    test button
-  </button>
-</div>
+exports[`testing BasicButton testing button sizes (prop: size) if prop was not passed 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
 `;
 
-exports[`BasicButton default 1`] = `
-<div>
-  <button
-    class="basic medium containedButton "
-  >
-    test button
-  </button>
-</div>
+exports[`testing BasicButton testing button sizes (prop: size) size is large 1`] = `
+<button
+  class="basic large containedButton "
+  data-testid="button"
+>
+  click
+</button>
 `;
 
-exports[`BasicButton outlined 1`] = `
-<div>
-  <button
-    class="basic small outlinedButton "
-  >
-    test button
-  </button>
-</div>
+exports[`testing BasicButton testing button sizes (prop: size) size is medium 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
 `;
 
-exports[`BasicButton text 1`] = `
-<div>
-  <button
-    class="basic medium textButton "
-  >
-    test button
-  </button>
-</div>
+exports[`testing BasicButton testing button sizes (prop: size) size is small 1`] = `
+<button
+  class="basic small containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) if prop was not passed 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is contained 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is outlined 1`] = `
+<button
+  class="basic medium outlinedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is text 1`] = `
+<button
+  class="basic medium textButton "
+  data-testid="button"
+>
+  click
+</button>
 `;

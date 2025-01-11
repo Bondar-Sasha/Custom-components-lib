@@ -26,7 +26,13 @@ const BasicInput: FC<BasicInputProps> = ({
    const preparedInput = [variantStyle.input, classes.input].join(' ')
    const preparedPrompt = [variantStyle.prompt, classes.prompt].join(' ')
 
-   return <Prototype {...props} classes={{ input: preparedInput, wrapper: preparedWrapper, prompt: preparedPrompt }} />
+   return (
+      <Prototype
+         {...props}
+         data-input-type={variant}
+         classes={{ input: preparedInput, wrapper: preparedWrapper, prompt: preparedPrompt }}
+      />
+   )
 }
 
 export default BasicInput

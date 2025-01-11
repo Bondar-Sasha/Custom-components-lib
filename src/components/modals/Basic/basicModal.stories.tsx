@@ -24,16 +24,13 @@ const BasicModal: FC<BasicModalProps> = props => {
          >
             show
          </BasicButton>
-         {createPortal(
-            <BasicModalTemplate open={modalState} {...props} onClose={handleClose}>
-               <h2>Text in a modal</h2>
-               <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-               <BasicButton variant="outlined" onClick={handleClose}>
-                  close
-               </BasicButton>
-            </BasicModalTemplate>,
-            document.body,
-         )}
+         <BasicModalTemplate {...props} open={modalState} onClose={handleClose}>
+            <h2>Text in a modal</h2>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+            <BasicButton variant="outlined" onClick={handleClose}>
+               close
+            </BasicButton>
+         </BasicModalTemplate>
       </>
    )
 }
@@ -48,6 +45,7 @@ const meta: Meta<typeof BasicModal> = {
    argTypes: {
       open: {
          control: 'boolean',
+         required: true,
          table: {
             defaultValue: { summary: 'false' },
             type: {},

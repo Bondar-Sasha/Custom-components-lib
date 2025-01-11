@@ -1,18 +1,21 @@
-import React, { FC, LiHTMLAttributes } from 'react'
+import React, { FC } from 'react'
 
 import styles from './basicSelectItem.module.css'
 
 interface ItemCustomProps {
-   content?: string
+   label: string
+   onClick: (str: string) => unknown
+   'data-testid': string
 }
-export type ItemProps = ItemCustomProps & LiHTMLAttributes<HTMLLIElement>
+export type ItemProps = ItemCustomProps
 
-const BasicSelectItem: FC<ItemProps> = ({ className = '', content = 'option', ...props }) => {
-   const classes = [styles.li, className].join(' ')
-
+const BasicSelectItem: FC<ItemProps> = ({ label, onClick, ...props }) => {
+   const handleClick = () => {
+      onClick(label)
+   }
    return (
-      <li {...props} className={classes}>
-         {content}
+      <li {...props} onClick={handleClick} className={styles.li}>
+         {label}
       </li>
    )
 }

@@ -36,6 +36,7 @@ const BasicSwitch: FC<BasicSwitchProps> = ({
    return (
       <Prototype
          {...props}
+         data-switch-type={variant}
          classes={{
             wrapper: preparedWrapper,
             toggle_label: preparedToggle_label,

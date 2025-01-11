@@ -15,6 +15,11 @@ interface PrototypeCustomProps {
 
 export type PrototypeProps = InputHTMLAttributes<HTMLInputElement> & PrototypeCustomProps
 
+const createTestId = (str: string, data?: string): string => {
+   if (data) return str + '-' + data
+   return str
+}
+
 const Prototype: FC<PrototypeProps> = ({
    error = false,
    placeholder = '',
@@ -27,12 +32,17 @@ const Prototype: FC<PrototypeProps> = ({
 
    const preparedPlaceholder = error ? 'Error' : placeholder
    return (
-      <div data-testid="wrapper" className={preparedWrapper}>
-         <input data-testid="input" {...props} className={preparedInput} placeholder={preparedPlaceholder} />
-         <label data-testid="label-prompt" className={preparedPrompt}>
+      <div data-testid={createTestId('wrapper', props.id)} className={preparedWrapper}>
+         <input
+            data-testid={createTestId('input', props.id)}
+            {...props}
+            className={preparedInput}
+            placeholder={preparedPlaceholder}
+         />
+         <label data-testid={createTestId('label-prompt', props.id)} className={preparedPrompt}>
             {preparedPlaceholder}
          </label>
-         <div data-testid="ui-helper"></div>
+         <div data-testid={createTestId('ui-helper', props.id)}></div>
       </div>
    )
 }
