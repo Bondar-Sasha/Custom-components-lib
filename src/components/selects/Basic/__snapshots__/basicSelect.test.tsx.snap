@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing BasicSelect controlled BasicSelect interactive (onBlur) 1`] = `
+<div
+  class="wrapper"
+  data-testid="wrapper"
+  tabindex="0"
+>
+  <label
+    class="prompt "
+    data-testid="label-prompt"
+  >
+    choice
+  </label>
+  <div
+    class="select "
+    data-testid="display"
+  >
+    <span
+      data-testid="display-text"
+    />
+  </div>
+  <svg
+    class="arrow "
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 512 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`testing BasicSelect controlled BasicSelect interactive 1`] = `
+<div
+  class="wrapper"
+  data-testid="wrapper"
+  tabindex="0"
+>
+  <label
+    class="prompt prompt_move"
+    data-testid="label-prompt"
+  >
+    choice
+  </label>
+  <div
+    class="select "
+    data-testid="display"
+  >
+    <span
+      data-testid="display-text"
+    >
+      second_option
+    </span>
+  </div>
+  <svg
+    class="arrow "
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 512 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`testing BasicSelect uncontrolled BasicSelect with prompt (props: prompt) 1`] = `
+<div
+  class="wrapper"
+  data-testid="wrapper"
+  tabindex="0"
+>
+  <label
+    class="prompt "
+    data-testid="label-prompt"
+  >
+    prompt
+  </label>
+  <div
+    class="select "
+    data-testid="display"
+  >
+    <span
+      data-testid="display-text"
+    />
+  </div>
+  <svg
+    class="arrow "
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 512 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+    />
+  </svg>
+</div>
+`;
+
+exports[`testing BasicSelect uncontrolled BasicSelect without passed props 1`] = `
+<div
+  class="wrapper"
+  data-testid="wrapper"
+  tabindex="0"
+>
+  <label
+    class="prompt prompt_move"
+    data-testid="label-prompt"
+  >
+    choice
+  </label>
+  <div
+    class="select "
+    data-testid="display"
+  >
+    <span
+      data-testid="display-text"
+    />
+  </div>
+  <ul
+    class="optionsWrapper"
+    data-testid="options"
+  >
+    <li
+      class="li"
+      data-testid="item-1"
+    >
+      first_option
+    </li>
+    <li
+      class="li"
+      data-testid="item-2"
+    >
+      second_option
+    </li>
+  </ul>
+  <svg
+    class="arrow arrow_top"
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    stroke-width="0"
+    viewBox="0 0 512 512"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+    />
+  </svg>
+</div>
+`;

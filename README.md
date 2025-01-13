@@ -4,6 +4,7 @@
 
 - [Task](#task)
 - [How to Run the App](#how-to-run-the-app)
+- [How to Use the App](#how-to-use-the-app)
 
 ## Task
 
@@ -18,14 +19,30 @@ https://bondar-sasha.github.io/Custom-components-lib/
 
 ### On your computer
     
-1) ```bash
+1) Clone the repository:
+   ```bash
    git clone https://github.com/Bondar-Sasha/Custom-components-lib
-2) ```bash
+2) Navigate to the project directory:
+   ```bash
    cd Custom-components-lib
-3) ```bash
+3) Install dependencies:
+   ```bash
    npm ci
-4) ```bash
+4) Run Storybook:
+   ```bash
    npm run storybook
+
+## How to Use the App
+
+1) Download the ui-kit:
+   ```bash
+   npm i app-for-testing-ui-kit
+2) index.jsx
+   ```bash
+   import "custom-components-lib-test-react/dist/index.css"
+3) component.jsx
+   ```bash
+   import { BasicButton } from 'custom-components-lib-test-react'
 
 
 

@@ -48,9 +48,9 @@ const BasicSelect: FC<BasicSelectProps> = ({
    }
 
    const handleOptionsBlur: FocusEventHandler<HTMLDivElement> = e => {
-      // selectDispatch({ type: 'visibility', payload: false })
-      // selectDispatch({ type: 'arrow', payload: false })
-      // selectDispatch({ type: 'blur', payload: false })
+      selectDispatch({ type: 'visibility', payload: false })
+      selectDispatch({ type: 'arrow', payload: false })
+      selectDispatch({ type: 'blur', payload: false })
    }
    const preparedOptionClick = (value: string) => {
       if (onChange) onChange(value)

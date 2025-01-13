@@ -79,5 +79,32 @@ describe('testing BasicSelect', () => {
 
          expect(elementWrapper).toMatchSnapshot()
       })
+      it('interactive (onBlur)', async () => {
+         render(<ControlledBasicSelect />)
+         const elementWrapper = screen.getByTestId('wrapper')
+         const elementDisplay = screen.getByTestId('display')
+         const elementTextInDisplay = screen.getByTestId('display-text')
+         const elementLabel = screen.getByTestId('label-prompt')
+
+         expect(elementWrapper).toBeInTheDocument()
+         expect(elementDisplay).toBeInTheDocument()
+         expect(elementTextInDisplay).toBeInTheDocument()
+         expect(elementLabel).toBeInTheDocument()
+
+         await userEvent.click(screen.getByTestId('wrapper'))
+         expect(screen.getByTestId('options')).toBeInTheDocument()
+         expect(screen.getByTestId('item-1')).toBeInTheDocument()
+         expect(screen.getByTestId('item-2')).toBeInTheDocument()
+
+         const prEl = screen.getByTestId('wrapper').parentElement
+         if (!prEl) throw new Error('no parent element')
+         await userEvent.click(prEl)
+
+         expect(screen.queryByTestId('options')).not.toBeInTheDocument()
+
+         expect(screen.getByTestId('display-text')).toHaveTextContent('')
+
+         expect(elementWrapper).toMatchSnapshot()
+      })
    })
 })
