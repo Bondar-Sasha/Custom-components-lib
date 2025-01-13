@@ -1,0 +1,38 @@
+@media (hover: hover) {
+   .wrapper:hover > input {
+      border-bottom-color: black;
+      transition: all 0.2s ease;
+   }
+}
+
+.wrapper > div {
+   bottom: 0;
+   left: 50%;
+   position: absolute;
+   height: 2px;
+   width: 0;
+   background-color: var(--theme);
+   transition: all 0.2s ease;
+}
+
+.input:is(:not(:placeholder-shown), :focus) ~ div {
+   left: 0%;
+   width: 100%;
+}
+
+.input {
+   border: none;
+   padding: 5px 0;
+   font-size: 1rem;
+   border-bottom: 1px solid rgb(131, 131, 131);
+   transition: all 0.2s ease;
+}
+.prompt {
+   left: 0;
+   top: 15%;
+   background: none;
+   color: var(--theme);
+}
+.input:not(:placeholder-shown) + .prompt {
+   top: -40%;
+}

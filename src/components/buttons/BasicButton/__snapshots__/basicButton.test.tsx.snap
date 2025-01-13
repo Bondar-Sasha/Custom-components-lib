@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing BasicButton testing button sizes (prop: size) if prop was not passed 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button sizes (prop: size) size is large 1`] = `
+<button
+  class="basic large containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button sizes (prop: size) size is medium 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button sizes (prop: size) size is small 1`] = `
+<button
+  class="basic small containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) if prop was not passed 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is contained 1`] = `
+<button
+  class="basic medium containedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is outlined 1`] = `
+<button
+  class="basic medium outlinedButton "
+  data-testid="button"
+>
+  click
+</button>
+`;
+
+exports[`testing BasicButton testing button variants (prop: variant) variant is text 1`] = `
+<button
+  class="basic medium textButton "
+  data-testid="button"
+>
+  click
+</button>
+`;

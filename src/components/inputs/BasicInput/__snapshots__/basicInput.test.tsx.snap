@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing BasicInput testing error (prop: error) error is true 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input error input "
+    data-input-type="standard"
+    data-testid="input"
+    placeholder="Error"
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  >
+    Error
+  </label>
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing error (prop: error) if prop was not passed 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="standard"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing input's classes (prop: classes) if prop was not passed 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="standard"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing input's classes (prop: classes) passed all classes, each has "class" value 1`] = `
+<div
+  class="basic wrapper wrapper class"
+  data-testid="wrapper"
+>
+  <input
+    class="input  input class"
+    data-input-type="standard"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt class"
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing variant (prop: variant) if prop was not passed 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="standard"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing variant (prop: variant) variant is filled 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="filled"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing variant (prop: variant) variant is outlined 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="outlined"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
+
+exports[`testing BasicInput testing variant (prop: variant) variant is standard 1`] = `
+<div
+  class="basic wrapper wrapper "
+  data-testid="wrapper"
+>
+  <input
+    class="input  input "
+    data-input-type="standard"
+    data-testid="input"
+    placeholder=""
+  />
+  <label
+    class="prompt prompt "
+    data-testid="label-prompt"
+  />
+  <div
+    data-testid="ui-helper"
+  />
+</div>
+`;
